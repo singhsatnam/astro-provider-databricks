@@ -20,6 +20,7 @@ from astro_databricks.operators.workflow import (
 from astro_databricks.plugins.plugin import (
     DatabricksJobRepairSingleFailedLink,
     DatabricksJobRunLink,
+    DatabricksJobRepairAllFailedLink
 )
 
 
@@ -95,6 +96,7 @@ class DatabricksTaskOperator(BaseOperator):
 
     operator_extra_links = (
         DatabricksJobRunLink(),
+        DatabricksJobRepairAllFailedLink,
         DatabricksJobRepairSingleFailedLink(),
     )
     template_fields = ("databricks_metadata",)
